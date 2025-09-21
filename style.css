@@ -1,0 +1,254 @@
+/* prompt-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Prompt';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/prompt-v10-latin-500.woff2') format('woff2');
+}
+/* prompt-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Prompt';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/prompt-v10-latin-600.woff2') format('woff2');
+}
+/* prompt-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Prompt';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/prompt-v10-latin-700.woff2') format('woff2');
+}
+
+html {
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'Prompt', sans-serif;
+  color: #174460;
+  background: #94d6ff;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  user-select: none;
+}
+
+/*== introduction ==*/
+.introduction {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  display: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.introduction.active {
+  display: flex;
+}
+
+.introduction__img {
+  width: 60%;
+  max-width: 400px;
+}
+
+/*== header ==*/
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.header__title {
+  font-size: 2rem;
+  padding-bottom: 0.2em;
+}
+
+.header__subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/*== board ==*/
+.board {
+  flex: 3;
+  width: 95vw;
+  max-width: 900px;
+}
+
+.board__grid {
+  max-height: 75vh;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(var(--size), 1fr);
+  grid-template-rows: repeat(var(--size), 1fr);
+  overflow: hidden;
+  background: #5d9abf;
+  box-shadow: rgba(23, 68, 96, 0.2) 0px 7px 29px 0px;
+}
+
+.dark {
+  background-color: #87b5ed;
+}
+
+.light {
+  background-color: #9ac1f0;
+}
+
+[data-board-tile-status] {
+  transition: all 0.2s ease-in;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+  font-weight: 600;
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+[data-board-tile-status]:hover {
+  background-color: #bad4f4;
+}
+
+[data-board-tile-status='marked'] {
+  background-image: url('./assets/flag.svg');
+  cursor: default;
+}
+
+[data-board-tile-status='open'] {
+  background-color: #5d9abf !important;
+  cursor: default;
+}
+
+[data-board-tile-status='mine'] {
+  background-color: #5d9abf !important;
+  background-image: url('./assets/mine.svg');
+  cursor: default;
+}
+
+/*== modal ==*/
+.modal__overlay {
+  background: black;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.4;
+  display: none;
+}
+
+.modal__overlay.active {
+  display: block;
+}
+
+.modal__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #9ac1f0;
+  box-shadow: rgba(23, 68, 96, 0.2) 0px 7px 29px 0px;
+  padding: 2em;
+  border-radius: 0.8rem;
+  z-index: 2;
+  width: 80%;
+  max-width: 500px;
+  display: none;
+}
+
+.modal__container.active {
+  display: flex;
+}
+
+.modal__title {
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+}
+
+.modal__text {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.1;
+  padding-bottom: 1em;
+  font-weight: 500;
+}
+
+.modal__button {
+  display: flex;
+  align-items: center;
+  padding: 0.75em 2em;
+  gap: 1em;
+  background-color: white;
+}
+
+.modal__button:hover {
+  transition: all 0.3s ease-in;
+  scale: 1.05;
+}
+
+.modal__play {
+  font-size: 1.5rem;
+  color: #174460;
+  font-weight: 600;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.modal__icon {
+  width: 2.5rem;
+  pointer-events: none;
+}
+
+@media (min-width: 22em) and (min-height: 22em) {
+  html {
+    font-size: 125%;
+  }
+
+  [data-board-tile-status] {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 50em) and (min-height: 50em) {
+  html {
+    font-size: 140%;
+  }
+
+  [data-board-tile-status] {
+    font-size: 2rem;
+  }
+}

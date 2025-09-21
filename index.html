@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sharksweeper</title>
+    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div data-introduction class="introduction">
+      <img class="introduction__img" src="./assets/introduction.png" alt="introduction" />
+    </div>
+
+    <div class="header">
+      <h1 class="header__title">Sharksweeper</h1>
+      <div class="header__subtitle">Sharks in the Pool: <span data-header-mine-counter></span></div>
+    </div>
+
+    <div class="board">
+      <div data-board-grid class="board__grid"></div>
+    </div>
+
+    <section class="modal">
+      <div data-modal-container-win class="modal__container">
+        <h2 class="modal__title">You Won!</h2>
+        <div class="modal__text">Congratulations, you didn’t get eaten by a shark.</div>
+        <button data-modal-button class="modal__button btn">
+          <span class="modal__play">Play Again</span>
+          <img class="modal__icon" src="./assets/button.svg" alt="shark" />
+        </button>
+      </div>
+
+      <div data-modal-container-lose class="modal__container">
+        <h2 class="modal__title">You Lose!</h2>
+        <div class="modal__text">Game over! The sharks got you this time.</div>
+        <button data-modal-button class="modal__button btn">
+          <span class="modal__play">Play Again</span>
+          <img class="modal__icon" src="./assets/button.svg" alt="shark" />
+        </button>
+      </div>
+    </section>
+    <div data-modal-overlay class="modal__overlay"></div>
+  </body>
+</html>
